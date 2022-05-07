@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>PLAY IntrAVerse</title>
+    <link rel="shortcut icon" href="/logos/INTRAVERSE_FAVICON-01.png">
+    <link rel="stylesheet" href="TemplateData/style.css">
+    <link rel="stylesheet" href="/style.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script src="./polyfills.js"></script>
+  </head>
+  <body style="text-align: center">
+    <div id="unity-container" class="unity-desktop" style="width: 100%; height: 100%;">
+      <canvas id="unity-canvas" width=1920 height=1080 style="width: 100%; height: 100%;"></canvas>
+      <div id="unity-loading-bar">
+        <h1 id="notifyingText" style="color: white;
+        @font-face {
+          font-family: teko-regular;
+          src: url(./Teko-Medium.ttf);
+      }
+       
+        ">Building the Game</h1>
+        <div id="unity-logo"></div>
+        <div id="unity-progress-bar-empty">
+          <div id="unity-progress-bar-full"></div>
+        </div>
+      </div>
+      <div id="unity-warning"> </div>
+      <div id="unity-footer">
+       
+      </div>
+    </div>
+      <div id="unity-warning"> </div>
+      <div id="unity-footer">
+        
+      </div>
+    </div>
+    <script src="Build/BuildsWeb.loader.js"></script>
+    <script>
+      var ref = null;
+     
+
+
+
+
+      var container = document.querySelector("#unity-container");
+      var canvas = document.querySelector("#unity-canvas");
+      var loadingBar = document.querySelector("#unity-loading-bar");
+      var progressBarFull = document.querySelector("#unity-progress-bar-full");
+
+
+
+      createUnityInstance(document.querySelector("#unity-canvas"), {
+        dataUrl: "Build/BuildsWeb.data",
+        frameworkUrl: "Build/BuildsWeb.framework.js",
+        codeUrl: "Build/BuildsWeb.wasm",
+        streamingAssetsUrl: "StreamingAssets",
+        companyName: "DefaultCompany",
+        productName: "intraverse",
+        productVersion: "0.1",
+      },(progress) =>
+      {
+        loadingBar.style.display = "block";
+        var script = document.createElement("script");
+        script.src = "Build/BuildsWeb.framework.js";
+        script.onload = () =>
+        {
+          progressBarFull.style.width = (progress * 100) + "%";
+        };
+        console.log("loading progres"+progress);
+      })
+
+      
+      .then((instance) =>
+      {
+        loadingBar.style.display = "none";
+        unityInstance = instance;
+        ref = localStorage.getItem('dynamicAccessReferral');
+
+        if(ref != null)
+      {
+          console.log('referral is live');
+      
+        unityInstance.SendMessage("webGetr","getSignedinUserID",localStorage.getItem("uid"));
+        unityInstance.SendMessage("webGetr","PassRefferal",ref);
+      }
+      else if (ref == undefined)
+      {
+        console.log('referral is not live');
+        unityInstance.SendMessage("webGetr","getSignedinUserID",localStorage.getItem("uid"));
+        unityInstance.SendMessage("webGetr","PassRefferal",null);
+      }
+      }).then({
+        deleteItem: function(key)
+        {
+          localStorage.removeItem("dynamicAccessReferral");
+        }
+      })
+      .catch((message) => { console.warn(message); });
+
+      
+      
+    </script>
+  </body>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  
+  <script>
+    var texts = new Array();
+  texts.push("New update make sure to hard refresh")
+texts.push("Building the Game");
+texts.push("Mining INTRA");
+texts.push("Petting the zombies");
+texts.push("Making Decoys");
+texts.push("Trying to sleep");
+texts.push("Making a new friend");
+texts.push("Baking Bread");
+
+var point = 0;
+
+function changeText(){
+  $('#notifyingText').html(texts[point]);
+  if(point < ( texts.length - 1 ) ){
+    point++;
+  }else{
+    point = 0;
+  }
+  
+}
+ 
+setInterval(changeText, 2000); /*Call it here*/
+changeText();
+  </script>
+</html>
+
+      

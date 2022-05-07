@@ -1,0 +1,28 @@
+{
+  "hosting": {
+    "public": "/",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  },
+  "emulators": {
+    "hosting": {
+      "host": "localhost",
+      "port": "8080"
+    },
+    "headers": [
+      {
+        "source": "**/*.gz",
+        "headers": [
+          {
+            "key": "Content-Encoding",
+            "value": "gzip"
+          }
+        ],
+        "cleanUrls": true
+      }
+    ]
+  }
+}

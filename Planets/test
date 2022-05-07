@@ -1,0 +1,5 @@
+
+var myWidth = window.innerWidth;
+        var myHeight = window.innerHeight;
+        canvas.style.width = myWidth +"px";
+        canvas.style.height = myHeight + "px";

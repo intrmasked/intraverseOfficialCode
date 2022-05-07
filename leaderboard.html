@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Intraverse</title>
+    <link rel="icon" href="logos/INTRAVERSE_FAVICON-01.png" />
+    <link rel="apple-touch-icon" href="logos/INTRAVERSE_FAVICON-01.png" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+    />
+  </head>
+ 
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document" >
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="exampleModalLongTitle">Logout</h3>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Are you sure you want to logout?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn login-btn d-flex align-items-center justify-content-center" data-dismiss="modal">Close</button>
+        <button type="button" class="btn login-btn d-flex align-items-center justify-content-center" id="logout">Logout</button>
+      </div>
+    </div>
+  </div>
+</div>
+  <body id="dashboard-body">
+    
+    <div id="preloader"></div>
+    <div id="wrapper">
+      <!-- Sidebar -->
+      <div id="sidebar-wrapper" class="d-none">
+        <ul class="sidebar-nav">
+          <a id="close-nav">
+            <i class="fa fa-times"></i>
+          </a>
+          <li class="sidebar-brand">
+            <a href="https://intraverse.io/">
+              <img src="logos/main-logo.png" />
+            </a>
+          </li>
+          <li>
+            <a href="dashboard.html" class="active">play</a>
+          </li>
+          <li>
+            <a href="earn-more.html">Referral</a>
+          </li>
+          <li>
+            <a href="account.html">account</a>
+          </li>
+          <li>
+            <a href="#" data-target="#exampleModalCenter" data-toggle="modal">log out</a>
+          </li>
+        </ul>
+        
+
+      </div>
+      
+      <!-- /#sidebar-wrapper -->
+      <!-- Page Content -->
+     
+      <div id="page-content-wrapper" class="dashboard-content-wrapper">
+        
+        <div class="sidebar-show">
+          <a href="http://www.intraverse.io">
+            <img src="logos/main-logo.png" />
+          </a>
+          <a id="open-nav">
+            <i class="fa fa-bars"></i>
+          </a>
+        </div>
+        <div class="container dashboard-container">
+          <div class="row">
+            <div
+              class="
+                col-12
+                d-flex
+                flex-column
+                align-items-center
+                justify-content-center
+                
+              "
+              
+               
+            >
+              <img src="logos/INTRAVERSE_LOGO_transparent.png" />
+              <h1>Congrats!</h1>
+              <h1>You are in the Early Access list,</h1>
+              <h1 style="color: #0ff" id="notifyPos">Getting data from the server...</h1>
+              <!-- Add a table here -->
+              <div style="margin-top: 15px;"></div>
+              
+              <button
+                id="enterArena"
+                class=" btn register-now-button"
+                
+                
+              >
+                   <a style=" margin-left: 15px;" >PLAY NOW</a> 
+              </button>
+              <div style="margin-top: 40px; letter-spacing: normal;">
+                <h1 id="coinsCollected" style="color: #0ff; font-weight: bold; font-size: 50px" class="maintext">GETTING COINS...</h1>
+              </div>
+              <div style="margin-bottom: 40px;"></div>
+
+              <div class="table-responsive">
+
+              <table class="table table-dark table-dashboard">
+                <thead>
+                  <tr>
+                    <th scope="col">RANK</th>
+                    <th scope="col">NAME</th>
+                    <th scope="col">COINS</th>
+                    
+
+                    
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row" >1</th>
+                    <td  id ="firstEmail">   </td>
+
+                    <td  id ="firstPoints">   </td>
+                   
+
+                  </tr>
+                  <tr>
+                    <th scope="row" >2</th>
+                    <td  id ="secondEmail"></td>
+
+                    <td  id ="secondPoints"></td>
+                    
+                    
+                  </tr>
+                  <tr >
+                    <th scope="row" >3</th>
+                    <td  id ="thirdEmail"></td>
+
+                    <td  id ="thirdPoints"></td>
+                   
+
+                  </tr>
+                  <tr>
+                    <th scope="row" >4</th>
+                    <td  id ="fourthEmail"></td>
+
+                    <td  id ="fourthPoints"></td>
+                    
+
+                  </tr>
+                  <tr class="custom-table-row" style=" border-bottom: 1.5pt solid white; border-top: 1.5pt solid white; border-right: 1.5pt solid white; border-left: 1.5pt solid white;">
+                    <th scope="row" id="posUser">5</th>
+
+                    <td  id ="userEmail"></td>
+
+                    <td id ="userPointsContest"></td>
+                    
+                  </tr>
+                </tbody>
+              </table>
+              </div>
+             <div>
+              <div style="margin-top: 40px;"></div>
+
+              <h2>
+                POINTS DETERMINE ONLY THE RANKING OF THIS LIST.
+                  YOU CAN ACCESS THE GAME WITH THE FOLLOWING ORDER.
+                 IMPORTANT: EARLIER YOU GET IN, AND HIGHER IS THE POSSIBILITY TO EARN MORE INTRA TOKENS.
+                THE FIRST IGO WILL REMAIN OPEN UNTIL THE 5,000,000 INTRA TOKENS ARE FINISHED.
+              </h2>
+              
+              
+             </div>
+              
+
+          </div>
+          
+        </div>
+       
+      </div>
+      
+      
+      <!-- /#page-content-wrapper -->
+     
+    </div>
+   
+    <script type="module" src="js/firebaseapp.js"></script>
+
+  
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script src="js/countdown.min.js"></script>
+  <script src="js/preloader.js"></script>
+  
+  <script>
+
+
+
+
+    $(document).ready(function () {
+      $(window).on("resize", function (e) {
+        checkScreenSize();
+      });
+      checkScreenSize();
+      $("#close-nav").click(function (e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+        $(".sidebar-show").css("display", "block");
+        // $("#page-content-wrapper").css("padding-bottom", "100px");
+        checkScreenSize();
+      });
+      $("#open-nav").click(function (e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+        $(".sidebar-show").css("display", "none");
+        // $("#page-content-wrapper").css("padding-bottom", "0px");
+        checkScreenSize();
+      });
+      function checkScreenSize() {
+        console.log($("#wrapper").hasClass("toggled"));
+        var newWindowWidth = $(window).width();
+        if (newWindowWidth < 481 && $("#wrapper").hasClass("toggled") == true) {
+          $("#page-content-wrapper .dashboard-container").css(
+            "position",
+            "fixed"
+          );
+          $("body").css("background-attachment", "fixed");
+        } else {
+          $("#page-content-wrapper .dashboard-container").css(
+            "position",
+            "relative"
+          );
+        }
+      }
+    });
+  </script>
+  
+  <script>
+    const cd = new Date().getFullYear() + 1;
+    $("#countdown").countdown({
+      year: cd,
+    });
+  </script>
+ 
+</html>

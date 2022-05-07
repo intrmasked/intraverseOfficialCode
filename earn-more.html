@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Intraverse</title>
+    <link rel="icon" href="logos/INTRAVERSE_FAVICON-01.png" />
+    <link rel="apple-touch-icon" href="logos/INTRAVERSE_FAVICON-01.png" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.min.css" />
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document" >
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3 class="modal-title" id="exampleModalLongTitle">Logout</h3>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Are you sure you want to logout?
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn login-btn d-flex align-items-center justify-content-center" data-dismiss="modal">Close</button>
+            <button type="button" class="btn login-btn d-flex align-items-center justify-content-center" id="logout">Logout</button>
+          </div>
+        </div>
+      </div>
+    </div>
+      <body id="dashboard-body">
+        
+        <div id="preloader"></div>
+        <div id="wrapper">
+          <!-- Sidebar -->
+          <div id="sidebar-wrapper" class="d-none">
+            <ul class="sidebar-nav">
+              <a id="close-nav">
+                <i class="fa fa-times"></i>
+              </a>
+              <li class="sidebar-brand">
+                <a href="https://intraverse.io/">
+                  <img src="logos/main-logo.png" />
+                </a>
+              </li>
+              <li>
+                <a href="dashboard.html" >play</a>
+              </li>
+              <li>
+                <a href="earn-more.html" class="active">Referral</a>
+              </li>
+              <li>
+                <a href="account.html">account</a>
+              </li>
+              <li>
+                <a href="#" data-target="#exampleModalCenter" data-toggle="modal">log out</a>
+              </li>
+            </ul>
+            
+    
+          </div> 
+      <!-- /#sidebar-wrapper -->
+      <div id="page-content-wrapper">
+        <div class="sidebar-show">
+          <a href="dashboard.html">
+            <img src="logos/main-logo.png" />
+          </a>
+          <a id="open-nav">
+            <i class="fa fa-bars"></i>
+          </a>
+        </div>
+        <div class="container dashboard-container">
+          <div class="row">
+            <div
+              class="
+                col-12
+                d-flex
+                flex-column
+                align-items-center
+                justify-content-between
+              "
+            >
+              <img
+                src="logos/transparentLogo.png"
+                style="margin-top: 50px"
+              />
+              <br />
+              <h1 class="earn-more-text my-4">
+                Earn more coins with the REFERAL MODE!
+              </h1>
+              <br />
+              <!-- Show referal code here for copy -->
+              <p id="copy" style="display: none">#ABC1234</p>
+              <div class="referal-code btn mb-4" style="user-select: all;">
+                <a id="ref">refCode</a>
+               
+                <i
+                  class="fa fa-copy ml-4"
+                  onclick="CopyToClipboard('copy')"
+                ></i>
+              </div>
+             
+              
+              <button class="btn btn-lg btn-block play-to-earn-button" id="whatsapp">
+                <p  class="fa fa-whatsapp" style="color: aliceblue;"></p>
+                
+                
+                WHATSAPP
+              </button>
+              <button class="btn btn-lg btn-block play-to-earn-button" id="telegram">
+                <p  class="fa fa-telegram" style="color: aliceblue;"></p>
+                
+                TELEGRAM
+              </button>
+              <button class="btn btn-lg btn-block play-to-earn-button" id="copylink">
+                <p  class="fa fa-copy" style="color: aliceblue;"></p>
+                
+                COPY REFERRAL LINK
+              </button>
+              <br />
+              <h1 style="margin-bottom: 100px">
+                GET AHEAD IN THE WAITING LIST BY SHARING YOUR REFERRAL CODE.
+                <br>
+                IF A FRIEND REGISTERS USING YOUR CODE AND FINISHES THE GAME  BOTH OF YOU GET 50 INTRA TOKENS MORE!
+              </h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <a id="emailfront" style="display: hidden;"></a>
+    <a id="coins" style="display: hidden;"></a>
+    <a id="points" style="display: hidden;"></a>
+    <script type="module" src="js/firebaseapp.js"></script>
+  </body>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script src="js/countdown.min.js"></script>
+  <script src="js/preloader.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+  <script>
+    $("#close-nav").click(function (e) {
+      e.preventDefault();
+      $("#wrapper").toggleClass("toggled");
+      $(".sidebar-show").css("display", "block");
+    });
+    $("#open-nav").click(function (e) {
+      e.preventDefault();
+      $("#wrapper").toggleClass("toggled");
+      $(".sidebar-show").css("display", "none");
+    });
+  </script>
+  <script>
+    const cd = new Date().getFullYear() + 1;
+    $("#countdown").countdown({
+      year: cd,
+    });
+  </script>
+  <script>
+    function CopyToClipboard(id) {
+      var r = document.createRange();
+      r.selectNode(document.getElementById('ref'));
+      window.getSelection().removeAllRanges();
+      window.getSelection().addRange(r);
+      document.execCommand("copy");
+      window.getSelection().removeAllRanges();
+      toastr.success("Text Copied.", "Success", { timeOut: 5000 });
+    }
+
+   
+    
+  </script>
+</html>
